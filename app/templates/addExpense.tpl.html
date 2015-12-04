@@ -1,0 +1,13 @@
+<h2>Add Expense</h2>
+<form id="addForm" name="addForm" >
+ <label>Category</label>
+ <select ng-model="expense.category"
+     ng-options="category for category in categories">
+ </select>
+ <label>Amount:</label>
+ <input required type="number" ng-model="expense.amount"></input>
+ <label>Description:</label>
+ <input type="text" ng-pattern="/^[a-zA-Z 0-9]*$/" ng-model="expense.description"></input>
+ <button ng-click="addExpense(expense)" ng-disabled="addForm.$pristine || addForm.$dirty && addForm.$invalid">Submit</button>
+ <a href="#" type="button">Cancel</a>
+</form>

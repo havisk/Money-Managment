@@ -1,0 +1,20 @@
+<div>
+  <ul class="nav">
+    <li>
+      <a class="color" href="#/">HOME</a> |
+      <a class="color" href="#/summary">SUMMARY</a>
+    </li>
+  </ul>
+</div>
+<h2>Update Expense</h2>
+<form id="addForm" name="addForm" >
+ <label>Category</label>
+ <select ng-model="singleExpense.category"
+     ng-options="category for category in categories">
+ </select>
+ <label>Amount:</label>
+ <input type="number" ng-model="singleExpense.amount"></input>
+ <label>Description:</label>
+ <input type="text" ng-pattern="/^[a-zA-Z 0-9]*$/" ng-model="singleExpense.description"></input>
+ <button ng-click="updateExpense(singleExpense)" ng-disabled="addForm.$pristine || addForm.$dirty && addForm.$invalid">Update</button>
+</form>

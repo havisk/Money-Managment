@@ -1,0 +1,18 @@
+<div>
+  <ul class="nav">
+    <li>
+      <a class="color" href="#/">HOME</a>
+    </li>
+  </ul>
+</div>
+<h2 class="ex">Expense Details</h2>
+<div class="exp-details" ng-repeat="expense in expenses">
+   <div class="col-sm-1">{{$index+1}}</div>
+   <div class="col-sm-3">{{expense.category}}</div>
+   <div class="col-sm-4"> {{expense.description}}</div>
+   <div class="col-sm-2">{{expense.amount| currency:"$"}} </div>
+   <div class="delete">
+    <a class="color" href="#/update/{{expense.objectId}}">UPDATE</a> |
+    <a class="color" ng-click="deleteExpense(expense)">DELETE</a>
+   </div>
+</div>
