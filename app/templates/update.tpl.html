@@ -16,5 +16,5 @@
  <input type="number" ng-model="singleExpense.amount"></input>
  <label>Description:</label>
  <input type="text" ng-pattern="/^[a-zA-Z 0-9]*$/" ng-model="singleExpense.description"></input>
- <button ng-click="updateExpense(singleExpense)" ng-disabled="addForm.$pristine || addForm.$dirty && addForm.$invalid">Update</button>
+ <button ng-click="updateExpense(singleExpense); reFresh()" ng-disabled="addForm.$pristine || addForm.$dirty && addForm.$invalid">Update</button>
 </form>

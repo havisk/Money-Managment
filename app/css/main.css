@@ -105,4 +105,12 @@ button:disabled {
   font-size: .8em;
   text-decoration: none; }
 
+.cancel {
+  float: right;
+  margin-right: 75%; }
+
+.cancel a {
+  color: white;
+  text-decoration: none; }
+
 /*# sourceMappingURL=main.css.map */

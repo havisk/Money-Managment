@@ -1,4 +1,4 @@
-let UpdateController = function($scope, $stateParams, UserService) {
+let UpdateController = function($scope, $stateParams, UserService, $state, $window) {
 
   $scope.categories = ['Bill', 'Food', 'Grocery', 'Entertainment', 'Kids', 'Music Equipment', 'Making it Rain' ];
   // $scope.updateExpense = updateExpense;
@@ -12,13 +12,12 @@ let UpdateController = function($scope, $stateParams, UserService) {
     UserService.updateExpense(obj).then((res) => {
       console.log('here');
       $state.go('root.summary');
+      $window.location.reload();
     });
-    
   };
-  
 
 };
 
-UpdateController.$inject = ['$scope', '$stateParams', 'UserService'];
+UpdateController.$inject = ['$scope', '$stateParams', 'UserService', '$state','$window'];
 
 export default UpdateController;

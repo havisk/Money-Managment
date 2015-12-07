@@ -157,7 +157,7 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var UpdateController = function UpdateController($scope, $stateParams, UserService) {
+var UpdateController = function UpdateController($scope, $stateParams, UserService, $state, $window) {
 
   $scope.categories = ['Bill', 'Food', 'Grocery', 'Entertainment', 'Kids', 'Music Equipment', 'Making it Rain'];
   // $scope.updateExpense = updateExpense;
@@ -171,11 +171,12 @@ var UpdateController = function UpdateController($scope, $stateParams, UserServi
     UserService.updateExpense(obj).then(function (res) {
       console.log('here');
       $state.go('root.summary');
+      $window.location.reload();
     });
   };
 };
 
-UpdateController.$inject = ['$scope', '$stateParams', 'UserService'];
+UpdateController.$inject = ['$scope', '$stateParams', 'UserService', '$state', '$window'];
 
 exports['default'] = UpdateController;
 module.exports = exports['default'];
