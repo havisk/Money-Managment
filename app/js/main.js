@@ -62,19 +62,22 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var AddExpenseController = function AddExpenseController($scope, UserService) {
+var AddExpenseController = function AddExpenseController($scope, UserService, $state, $window) {
 
   $scope.categories = ['Bill', 'Food', 'Grocery', 'Entertainment', 'Kids', 'Music Equipment', 'Making it Rain'];
   $scope.addExpense = addExpense;
 
   function addExpense(expenseObj) {
 
-    UserService.addExpense(expenseObj).then(function (res) {});
+    UserService.addExpense(expenseObj).then(function (res) {
+      $state.go('root.summary');
+      $window.location.reload();
+    });
     $scope.expense = {};
   };
 };
 
-AddExpenseController.$inject = ['$scope', 'UserService'];
+AddExpenseController.$inject = ['$scope', 'UserService', '$state', '$window'];
 
 exports['default'] = AddExpenseController;
 module.exports = exports['default'];
@@ -126,7 +129,7 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var SummaryController = function SummaryController($scope, UserService, $state, $stateParams) {
+var SummaryController = function SummaryController($scope, UserService, $state, $stateParams, $window) {
 
   $scope.deleteExpense = deleteExpense;
 
@@ -137,7 +140,7 @@ var SummaryController = function SummaryController($scope, UserService, $state, 
   function deleteExpense(obj) {
     console.log(obj);
     UserService.deleteExpense(obj).then(function (res) {
-      $state.go('root.summary');
+      $window.location.reload();
     });
   }
 
@@ -146,7 +149,7 @@ var SummaryController = function SummaryController($scope, UserService, $state, 
   // var categories = cate
 };
 
-SummaryController.$inject = ['$scope', 'UserService', '$state', '$stateParams'];
+SummaryController.$inject = ['$scope', 'UserService', '$state', '$stateParams', '$window'];
 
 exports['default'] = SummaryController;
 module.exports = exports['default'];

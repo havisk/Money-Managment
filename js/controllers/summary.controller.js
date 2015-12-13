@@ -1,4 +1,4 @@
-let SummaryController = function($scope, UserService, $state, $stateParams) {
+let SummaryController = function($scope, UserService, $state, $stateParams, $window) {
 
   $scope.deleteExpense = deleteExpense;
 
@@ -9,7 +9,7 @@ let SummaryController = function($scope, UserService, $state, $stateParams) {
   function deleteExpense(obj){
     console.log(obj);
     UserService.deleteExpense(obj).then((res) => {
-      $state.go('root.summary');
+      $window.location.reload();
       
     });
   }
@@ -21,6 +21,6 @@ let SummaryController = function($scope, UserService, $state, $stateParams) {
   
 };
 
-SummaryController.$inject = ['$scope', 'UserService', '$state', '$stateParams'];
+SummaryController.$inject = ['$scope', 'UserService', '$state', '$stateParams', '$window'];
 
 export default SummaryController;
