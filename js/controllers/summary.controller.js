@@ -6,6 +6,7 @@ let SummaryController = function($scope, UserService, $state, $stateParams, $win
     $scope.expenses = res.data.results;
   });
 
+//deletes the selection
   function deleteExpense(obj){
     console.log(obj);
     UserService.deleteExpense(obj).then((res) => {
@@ -15,10 +16,6 @@ let SummaryController = function($scope, UserService, $state, $stateParams, $win
   }
   
 
-  // $scope.summaryData = [];
-
-  // var categories = cate
-  
 };
 
 SummaryController.$inject = ['$scope', 'UserService', '$state', '$stateParams', '$window'];

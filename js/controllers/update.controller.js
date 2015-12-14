@@ -8,6 +8,7 @@ let UpdateController = function($scope, $stateParams, UserService, $state, $wind
     console.log(res);
   });
   
+  //updates the selected item
   $scope.updateExpense = function(obj) {
     UserService.updateExpense(obj).then((res) => {
       console.log('here');

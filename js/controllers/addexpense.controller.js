@@ -5,9 +5,11 @@ let AddExpenseController = function($scope, UserService, $state, $window) {
     
   function addExpense(expenseObj) {
     
-    
+    //adds expense to 
     UserService.addExpense(expenseObj).then((res) =>{
       $state.go('root.summary');
+
+      //refreshes the page
       $window.location.reload();
 
   });
