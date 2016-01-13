@@ -3,11 +3,11 @@
 - This app is to help you keep track of your Expenses
 - future update will add charts.
 
-```Tech used: 
-AngularJS;
-Angular UI-Router;
-SASS;
-```
+Tech used: 
+- AngularJS;
+- Angular UI-Router;
+- SASS;
+
 
 
 ## Usage
