@@ -69,8 +69,11 @@ var AddExpenseController = function AddExpenseController($scope, UserService, $s
 
   function addExpense(expenseObj) {
 
+    //adds expense to
     UserService.addExpense(expenseObj).then(function (res) {
       $state.go('root.summary');
+
+      //refreshes the page
       $window.location.reload();
     });
     $scope.expense = {};
@@ -137,16 +140,13 @@ var SummaryController = function SummaryController($scope, UserService, $state, 
     $scope.expenses = res.data.results;
   });
 
+  //deletes the selection
   function deleteExpense(obj) {
     console.log(obj);
     UserService.deleteExpense(obj).then(function (res) {
       $window.location.reload();
     });
   }
-
-  // $scope.summaryData = [];
-
-  // var categories = cate
 };
 
 SummaryController.$inject = ['$scope', 'UserService', '$state', '$stateParams', '$window'];
@@ -170,6 +170,7 @@ var UpdateController = function UpdateController($scope, $stateParams, UserServi
     console.log(res);
   });
 
+  //updates the selected item
   $scope.updateExpense = function (obj) {
     UserService.updateExpense(obj).then(function (res) {
       console.log('here');
@@ -199,9 +200,13 @@ var _config = require('./config');
 
 var _config2 = _interopRequireDefault(_config);
 
+//constants
+
 var _constantParseConstant = require('./constant/parse.constant');
 
 var _constantParseConstant2 = _interopRequireDefault(_constantParseConstant);
+
+//controllers
 
 var _controllersHomeController = require('./controllers/home.controller');
 
@@ -222,6 +227,8 @@ var _controllersSingleexpenseController2 = _interopRequireDefault(_controllersSi
 var _controllersUpdateController = require('./controllers/update.controller');
 
 var _controllersUpdateController2 = _interopRequireDefault(_controllersUpdateController);
+
+//services
 
 var _servicesUserService = require('./services/user.service');
 
